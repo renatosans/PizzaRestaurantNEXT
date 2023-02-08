@@ -2,10 +2,10 @@
 Online pizza ordering written in Nextjs
 
 
-Project forked from  https://github.com/Vitals9367/pizza_website
+## Project forked from  https://github.com/Vitals9367/pizza_website
 
-Added backend to the project
-Add database scripts to the project
+- Added backend to the project
+- Added database scripts to the project
 
 ## Steps to run the project
 - npm install
