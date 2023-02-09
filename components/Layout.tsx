@@ -6,6 +6,7 @@ import Navbar from './Navbar'
 import AppContext from '../AppContext';
 import styles from '../styles/Layout.module.scss';
 import { X } from 'react-feather';
+import { toast, Toaster } from 'react-hot-toast';
 
 interface ILayout {
     children: React.ReactNode,
@@ -19,6 +20,10 @@ const Layout:React.FC<ILayout> = ({children}) => {
 
     const closeNotification = context.update.closeNotification;
     const showNotification = context.state.showNotification
+
+    const menuClick = () => {
+        toast.success("Under construction");
+    }
 
     const cartClick = () => {
         setShowCart(!showCart);
@@ -34,7 +39,8 @@ const Layout:React.FC<ILayout> = ({children}) => {
             <title>Pizza House</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
-        <Navbar cartClick={cartClick} showCart={showCart}/>
+        <Toaster/>
+        <Navbar menuClick={menuClick} cartClick={cartClick} showCart={showCart}/>
         <Cart show={showCart} />
         {<div className={`${styles.notification} ${showNotification && styles.notification_show}`}>
             <p>Item Added to Cart!</p>
