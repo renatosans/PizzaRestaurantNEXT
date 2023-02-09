@@ -1,3 +1,4 @@
+import { ingredientType } from '../utils/types'
 import Head from 'next/head';
 import React, { useState, useEffect, useContext } from 'react'
 import Cart from './Cart';
@@ -8,12 +9,14 @@ import styles from '../styles/Layout.module.scss';
 import { X } from 'react-feather';
 import { toast, Toaster } from 'react-hot-toast';
 
+
 interface ILayout {
     children: React.ReactNode,
 }
 
 const Layout:React.FC<ILayout> = ({children}) => {
 
+    const [ingredients, setIngredients] = useState<ingredientType[]>();
     const [showCart,setShowCart] = useState(false);
 
     const context = useContext(AppContext);
@@ -22,6 +25,7 @@ const Layout:React.FC<ILayout> = ({children}) => {
     const showNotification = context.state.showNotification
 
     const menuClick = () => {
+        console.log(ingredients);
         toast.success("Under construction");
     }
 
@@ -32,6 +36,17 @@ const Layout:React.FC<ILayout> = ({children}) => {
     const notificationClick = () => {
         closeNotification();
     }
+
+    const getIngredients = async () => {
+        const response = await fetch(`/api/ingredients`);
+        const allIngredients = await response.json();
+
+        setIngredients(allIngredients);
+    }
+
+    useEffect(() => {
+        getIngredients();
+    }, []);
 
     return (
         <>

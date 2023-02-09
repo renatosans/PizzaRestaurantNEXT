@@ -23,3 +23,10 @@ export type menuOptionType = {
     name:string,
     sections:section[]
 }
+
+export type ingredientType = {
+    id: number,
+    name: string,
+    flag: boolean,
+    img: string,
+}
