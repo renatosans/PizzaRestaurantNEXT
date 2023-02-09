@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -12,11 +12,11 @@ model ingredient_region {
   ingredient_id Int
   price         Decimal?       @db.Decimal(8, 2)
   stock         Int?
-  ing_reg_id    Int            @id(map: "ing_reg_pk") @default(autoincrement())
+  ing_reg_id    Int            @id @default(autoincrement())
   supplier_id   Int?
-  ingredients   ingredients    @relation(fields: [ingredient_id], references: [ingredient_id], onDelete: Cascade, map: "ingredient_fk")
-  region        region         @relation(fields: [region_id], references: [region_id], onDelete: Cascade, map: "region_fk")
-  supplier      supplier?      @relation(fields: [supplier_id], references: [supplier_id], onDelete: Cascade, map: "supplier_fk")
+  ingredients   ingredients    @relation(fields: [ingredient_id], references: [ingredient_id], onDelete: Cascade)
+  region        region         @relation(fields: [region_id], references: [region_id], onDelete: Cascade)
+  supplier      supplier?      @relation(fields: [supplier_id], references: [supplier_id], onDelete: Cascade)
   order_detail  order_detail[] @ignore
 }
 
@@ -41,7 +41,7 @@ model ingredients {
 model order {
   timestamp    DateTime?      @db.Timestamp(6)
   total_price  Decimal?       @db.Decimal(8, 2)
-  order_id     Int            @id(map: "order_pk") @default(autoincrement())
+  order_id     Int            @id @default(autoincrement())
   order_detail order_detail[] @ignore
 }
 
@@ -50,16 +50,16 @@ model order_detail {
   base_id           Int?
   ingredient_id     Int?
   order_id          Int?
-  ingredient_region ingredient_region? @relation(fields: [ingredient_id], references: [ing_reg_id], onDelete: Cascade, map: "ingredient_fk")
-  order             order?             @relation(fields: [order_id], references: [order_id], onDelete: Cascade, map: "order_fk")
-  pizza_base        pizza_base?        @relation(fields: [base_id], references: [base_id], onDelete: Cascade, map: "orders_base_id_fkey")
+  ingredient_region ingredient_region? @relation(fields: [ingredient_id], references: [ing_reg_id], onDelete: Cascade)
+  order             order?             @relation(fields: [order_id], references: [order_id], onDelete: Cascade)
+  pizza_base        pizza_base?        @relation(fields: [base_id], references: [base_id], onDelete: Cascade)
 
   @@ignore
 }
 
 model pizza_base {
   base_id      Int            @id
-  base_size    String?        @db.VarChar
+  base_size    String?        @db.VarChar(60)
   price        Decimal?       @db.Decimal(8, 2)
   order_detail order_detail[] @ignore
 }
@@ -72,7 +72,7 @@ model region {
 
 model supplier {
   supplier_id         Int                   @id @default(autoincrement())
-  supplier_name       String?               @db.VarChar
+  supplier_name       String?               @db.VarChar(150)
   hidden              Boolean?              @default(true)
   ingredient_region   ingredient_region[]
   ingredient_supplier ingredient_supplier[]
