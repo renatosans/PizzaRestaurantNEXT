@@ -97,7 +97,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       "ingredient_id" : 1,
       "ingredient_name" : "Calabresa",
       "flag" : true,
-      "img" : "https://img.freepik.com/free-photo/fresh-raw-sausage-old-wooden_2829-15934.jpg"
+      "img" : "/img/ingredient1.jpg"
     },
     {
       "ingredient_id" : 2,
