@@ -62,7 +62,7 @@ model pizza {
   name        String        @db.VarChar(250)
   description String?       @db.VarChar(4000)
   imageSrc    String        @db.VarChar(250)
-  heat        Int?          @db.Integer
+  heat        Int?
   price       Decimal       @db.Decimal(10, 2)
   discount    Decimal?      @db.Decimal(10, 2)
   currency    String        @db.VarChar(4)
