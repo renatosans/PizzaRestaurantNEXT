@@ -1006,6 +1006,24 @@ ALTER SEQUENCE public.order_order_id_seq OWNED BY public."order".order_id;
 
 
 --
+-- Name: pizza; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.pizza (
+    id integer NOT NULL,
+    name character varying(250) NOT NULL,
+    description character varying(4000),
+    "imageSrc" character varying(250) NOT NULL,
+    heat integer,
+    price numeric(10,2) NOT NULL,
+    discount numeric(10,2),
+    currency character varying(4) NOT NULL
+);
+
+
+ALTER TABLE public.pizza OWNER TO postgres;
+
+--
 -- Name: pizza_base; Type: TABLE; Schema: public; Owner: postgres
 --
 
