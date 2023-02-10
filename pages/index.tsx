@@ -12,7 +12,6 @@ import Router from 'next/router';
 
 //   https://github.com/Vitals9367/pizza_website.git
 
-
 const Home: NextPage = () => {
     const menu_ref = useRef(null);
     const [currentMenuOption,setCurrentMenuOption] = useState(menuOptions[0]);

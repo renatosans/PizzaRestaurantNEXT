@@ -94,20 +94,47 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
 
   export const allIngredients: ingredientType[] = [
     {
-      name: 'Calabresa',
-      flag: true,
-      img: "https://img.freepik.com/free-photo/fresh-raw-sausage-old-wooden_2829-15934.jpg",
+      "id" : 1,
+      "name" : "Calabresa",
+      "flag" : true,
+      "img" : "https://img.freepik.com/free-photo/fresh-raw-sausage-old-wooden_2829-15934.jpg"
     },
     {
-      name: 'Ovo',
-      flag: true,
-      img: "https://img.freepik.com/free-photo/top-view-duck-eggs-dark-surface_1150-36985.jpg",
+      "id" : 2,
+      "name" : "Ovo",
+      "flag" : true,
+      "img" : "https://img.freepik.com/free-photo/top-view-duck-eggs-dark-surface_1150-36985.jpg"
     },
     {
-      name: 'Tomate',
-      flag: true,
-      img: "https://img.freepik.com/free-photo/fresh-tomatoes-ready-cook_1150-38243.jpg"
-    }
+      "id" : 3,
+      "name" : "Tomate",
+      "flag" : true,
+      "img" : "https://img.freepik.com/free-photo/fresh-tomatoes-ready-cook_1150-38243.jpg"
+    },
+    {
+      "id" : 4,
+      "name" : "Mussarela",
+      "flag" : true,
+      "img" : "https://img.freepik.com/free-photo/isometric-cheese-composition_23-2148161904.jpg"
+    },
+    {
+      "id" : 5,
+      "name" : "Azeitona",
+      "flag" : true,
+      "img" : "https://img.freepik.com/free-photo/fresh-tasty-green-olives_1220-1414.jpg"
+    },
+    {
+      "id" : 6,
+      "name" : "Peperoni",
+      "flag" : true,
+      "img" : "https://img.freepik.com/free-photo/tasty-traditional-chorizo-assortment_23-2148980296.jpg"
+    },
+    {
+      "id" : 7,
+      "name" : "Presunto",
+      "flag" : true,
+      "img" : "https://img.freepik.com/free-photo/pork-ham_1339-2076.jpg"
+    },
   ]
 
   export const menuOptions:menuOptionType[] = [
