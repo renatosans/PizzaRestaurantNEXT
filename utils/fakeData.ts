@@ -1,4 +1,4 @@
-import { menuOptionType, pizzaType } from "./types"
+import { ingredientType, menuOptionType, pizzaType } from "./types"
 
 const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.'
 
@@ -92,7 +92,25 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
     },
   ]
 
-export const menuOptions:menuOptionType[] = [
+  export const allIngredients: ingredientType[] = [
+    {
+      name: 'Calabresa',
+      flag: true,
+      img: "https://img.freepik.com/free-photo/fresh-raw-sausage-old-wooden_2829-15934.jpg",
+    },
+    {
+      name: 'Ovo',
+      flag: true,
+      img: "https://img.freepik.com/free-photo/top-view-duck-eggs-dark-surface_1150-36985.jpg",
+    },
+    {
+      name: 'Tomate',
+      flag: true,
+      img: "https://img.freepik.com/free-photo/fresh-tomatoes-ready-cook_1150-38243.jpg"
+    }
+  ]
+
+  export const menuOptions:menuOptionType[] = [
     {
       name: 'Home',
       sections: [
@@ -139,4 +157,4 @@ export const menuOptions:menuOptionType[] = [
   ]
 
 
-export const all = trending.concat(best,cheapest);
+export const all = trending.concat(best,cheapest);  // isso tá estranho, cade o field pizza_type (cheapest, best, trending)

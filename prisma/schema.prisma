@@ -57,6 +57,17 @@ model order_detail {
   @@ignore
 }
 
+model pizza {
+  id          Int           @id @default(autoincrement())
+  name        String        @db.VarChar(250)
+  description String?       @db.VarChar(4000)
+  imageSrc    String        @db.VarChar(250)
+  heat        Int?          @db.Integer
+  price       Decimal       @db.Decimal(10, 2)
+  discount    Decimal?      @db.Decimal(10, 2)
+  currency    String        @db.VarChar(4)
+}
+
 model pizza_base {
   base_id      Int            @id
   base_size    String?        @db.VarChar(60)

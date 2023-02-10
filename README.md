@@ -14,3 +14,5 @@ Online pizza ordering written in Nextjs
 ## Steps to create de database
 - run the sql scripts at prisma folder  for  Postgres
 - prisma db push     for  MySQL
+- prisma db seed         ( npm install -g tsx )
+

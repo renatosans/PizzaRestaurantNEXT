@@ -25,7 +25,7 @@ export type menuOptionType = {
 }
 
 export type ingredientType = {
-    id: number,
+    id?: number,
     name: string,
     flag: boolean,
     img: string,
