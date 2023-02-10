@@ -3,6 +3,8 @@ import { pizzaType, ingredientType } from "../utils/types"
 import { all, allIngredients } from '../utils/fakeData';
 
 
+// run the command on terminal to populate data
+// >  prisma db seed
 
 async function main() {
 
