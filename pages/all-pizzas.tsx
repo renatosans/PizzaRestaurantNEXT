@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 import MenuItem from '../components/MenuItem';
 
 import styles from '../styles/AllPizzas.module.scss';
@@ -33,9 +33,18 @@ const MenuButton:React.FC<IMenuButton> = ({children, onClick, active}) => {
 
 const AllPizzas = () => {
 
-    const getAllPizzas = () => {
-        return all;
+    const [pizzas, setPizzas] = useState<pizzaType[]>();
+
+    const getPizzas = async () => {
+        const response = await fetch(`/api/pizzas`);
+        const allPizzas = await response.json();
+    
+        setPizzas(allPizzas);
     }
+
+    useEffect(() => {
+        getPizzas();
+    }, []);
 
     const getAllCategories = () => {
 
@@ -49,12 +58,9 @@ const AllPizzas = () => {
         return categories;
     }
 
-    const base_list = getAllPizzas();
     const categories = getAllCategories();
-
     const [currentSort,setCurrentSort] = useState(Sort.Default);
     const [currentCategory,setCurrentCategory] = useState('All');
-    const [list,setList] = useState<pizzaType[] | undefined>(base_list);
 
     const sortList = (sort:Sort, array:pizzaType[] | undefined) => {
         switch (sort){
@@ -204,10 +210,9 @@ const AllPizzas = () => {
                     </MenuButton>
                 </div>
             </div>
-            <div className={styles.list}>
-                {list?.map((item, index) => (
-                    <MenuItem pizza={item} key={index} />
-                ))}
+            <div className={styles.list}>{
+                pizzas?.map((item, index) => <MenuItem pizza={item} key={index} />)
+            }
             </div>
         </div>
         </>
