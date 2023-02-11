@@ -11,11 +11,26 @@ interface IMenuItem {
     pizza: pizzaType
 }
 
-export const HeatIcon = () => {
+const HeatIcon = () => {
     return (
         <div className={styles.pizza_heat_icon}>
             <Image src='/pepper.png' alt='pepper' width={24} height={24} />
         </div>
+    )
+}
+
+export const HeatLevel = (props: any) => {
+    const peppers = (level: number) => {
+        const count = (level > 5) ? 5 : level;
+        const pepperArr = new Array(count);
+
+        return pepperArr;
+    }
+    return (
+        <>{
+            Array.from(peppers(props.level), (el: any, index: number) => <HeatIcon key={index} />)
+        }
+        </>
     )
 }
 
@@ -49,9 +64,8 @@ const MenuItem:React.FC<IMenuItem> = ({pizza}) => {
                     }
                 </div>
                 <div className={styles.pizza_row}>
-                    <div className={styles.pizza_row}>{
-                        Array.from({length: pizza.heat}, (el: any, index: number) => <HeatIcon key={index} />)
-                    }
+                    <div className={styles.pizza_row}>
+                        <HeatLevel level={pizza.heat}></HeatLevel>
                     </div>
                     <button className={styles.pizza_add} onClick={(e) => {
                         e.stopPropagation();

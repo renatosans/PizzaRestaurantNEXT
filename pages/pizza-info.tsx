@@ -5,7 +5,7 @@ import { all } from '../utils/fakeData';
 import Image from 'next/image';
 import AppContext from '../AppContext';
 import styles from '../styles/PizzaInfo.module.scss';
-import { HeatIcon } from '../components/MenuItem';
+import { HeatLevel } from '../components/MenuItem';
 import { priceAfterDiscount } from '../utils/helpers';
 import {ArrowLeft} from 'react-feather';
 import GoBack from '../components/GoBack';
@@ -70,7 +70,8 @@ const PizzaInfo:React.FC<IPizzaInfo> = ({router}) => {
                 <h2>{pizzaFound.name}</h2>
                 <p>{pizzaFound.description}</p>
                 <div className={styles.row}>
-                   <h3>Heat:</h3> {Array.from({length: pizzaFound.heat}, (index) => <HeatIcon />)}
+                   <h3>Heat: </h3>
+                   <HeatLevel level={pizzaFound.heat}></HeatLevel>
                 </div>
                 <div className={styles.row}>
                     <h3>Price:</h3>
