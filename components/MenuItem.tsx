@@ -38,31 +38,26 @@ const MenuItem:React.FC<IMenuItem> = ({pizza}) => {
     }
 
     return (
-        <a onClick={() => openInfo()}  className={styles.pizza_panel}>
-            {pizza.discount &&
-            <div className={styles.pizza_discount}>
-            {pizza.discount}%
-            </div>
+        <a onClick={() => openInfo()}  className={styles.pizza_panel}>{
+                pizza.discount &&
+                    <div className={styles.pizza_discount}>{pizza.discount}%</div>
             }
             <div className={styles.pizza_image}>
-            <Image
-                src={pizza.imageSrc}
-                alt={pizza.name}
-                layout="fill"
-                objectFit='cover'
-            />
+                <Image src={pizza.imageSrc} alt={pizza.name} layout="fill" objectFit='cover' />
             </div>
+
             <div className={styles.pizza_info}>
                 <div className={styles.pizza_row}>
-                    <h2>{pizza.name}</h2>
-                    {pizza.discount
-                    ? <div className={styles.pizza_row}><h3 className={styles.pizza_price_dc}>{pizza.price}{pizza.currency}</h3> <h3>{priceAfterDiscount(pizza.price,pizza.discount)}{pizza.currency}</h3></div>
-                    : <h3>{pizza.price} {pizza.currency}</h3>
+                    <h2>{pizza.name}</h2>{
+                        pizza.discount
+                        ? <div className={styles.pizza_row}><h3 className={styles.pizza_price_dc}>{pizza.price}{pizza.currency}</h3> <h3>{priceAfterDiscount(pizza.price,pizza.discount)}{pizza.currency}</h3></div>
+                        : <h3>{pizza.price} {pizza.currency}</h3>
                     }
                 </div>
                 <div className={styles.pizza_row}>
-                    <div className={styles.pizza_row}>
-                        {Array.from({length: pizza.heat}, (index) => <HeatIcon />)}
+                    <div className={styles.pizza_row}>{
+                        Array.from({length: pizza.heat}, (el: any, index: number) => <HeatIcon key={index} />)
+                    }
                     </div>
                     <button className={styles.pizza_add} onClick={(e) => {
                         e.stopPropagation();
