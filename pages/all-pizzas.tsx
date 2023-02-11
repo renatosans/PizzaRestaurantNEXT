@@ -142,7 +142,7 @@ const AllPizzas = () => {
     }
 
     const sortClick = (sort:any) => {
-        let array:pizzaType[] | undefined;
+        let array: pizzaType[] | undefined;
 
         if(sort === Sort.Alphabet && currentSort === Sort.Alphabet){
             setCurrentSort(Sort.Default);
@@ -158,7 +158,7 @@ const AllPizzas = () => {
             setCurrentSort(sort);
         }
 
-        setList(array);
+        setPick(array);
     }
 
     const categoryClick = (category:string) => {
