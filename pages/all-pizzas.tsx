@@ -146,15 +146,9 @@ const AllPizzas = () => {
 
         if(sort === Sort.Alphabet && currentSort === Sort.Alphabet){
             setCurrentSort(Sort.Default);
-
-            if(currentCategory === 'All'){
-                array = base_list;
-            }else{
-                array = filterCategory(currentCategory);
-            }
-
+            array = (currentCategory === 'All') ? pizzas : filterCategory(currentCategory);
         }else{
-            array = sortList(sort,list);
+            array = sortList(sort, pick);
             setCurrentSort(sort);
         }
 
