@@ -45,7 +45,6 @@ const MenuItem:React.FC<IMenuItem> = ({pizza}) => {
             <div className={styles.pizza_image}>
                 <Image src={pizza.imageSrc} alt={pizza.name} layout="fill" objectFit='cover' />
             </div>
-
             <div className={styles.pizza_info}>
                 <div className={styles.pizza_row}>
                     <h2>{pizza.name}</h2>{
