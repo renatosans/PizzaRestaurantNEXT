@@ -33,7 +33,9 @@ const MenuButton:React.FC<IMenuButton> = ({children, onClick, active}) => {
 
 const AllPizzas = () => {
 
+    const [pick, setPick] = useState<pizzaType[]>();
     const [pizzas, setPizzas] = useState<pizzaType[]>();
+
 
     const getPizzas = async () => {
         const response = await fetch(`/api/pizzas`);
@@ -160,22 +162,15 @@ const AllPizzas = () => {
     }
 
     const categoryClick = (category:string) => {
-        let array:pizzaType[] | undefined;
-
-        if(category === 'All'){
-            array = base_list;
-        }else{
-            array = filterCategory(category);
-        }
-
-        array = sortList(currentSort,array);
         setCurrentCategory(category);
-        setList(array);
 
+        let array: pizzaType[] | undefined = (category === 'All') ? pizzas : filterCategory(category);
+        array = sortList(currentSort, array);
+        setPick(array);
     }
 
     const clearFilters = () => {
-        setList(base_list);
+        setPick(pizzas);
         setCurrentCategory('All');
         setCurrentSort(Sort.Default);
     }
