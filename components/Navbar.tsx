@@ -3,17 +3,18 @@ import Image from 'next/image';
 import AppContext from '../AppContext';
 import {useRouter} from 'next/router';
 import styles from '../styles/Navbar.module.scss';
-
+import { ArrowLeft } from 'react-feather';
 import { Menu, ShoppingCart, X } from 'react-feather';
 import chef from '../public/chef.svg';
 
 interface INavbar {
+    returnClick: () => void,
     menuClick: () => void,
     cartClick: () => void,
     showCart: boolean,
 }
 
-const Navbar:React.FC<INavbar> = ({menuClick, cartClick, showCart=false}) => {
+const Navbar:React.FC<INavbar> = ({returnClick, menuClick, cartClick, showCart=false}) => {
 
     const context = useContext(AppContext);
     const cartItems = context.state.cartItems;
@@ -67,6 +68,9 @@ const Navbar:React.FC<INavbar> = ({menuClick, cartClick, showCart=false}) => {
             <div className={styles.nav_text}>
                 <h3>Pizza House</h3>
             </div>
+            <button className={styles.nav_action} onClick={returnClick}>
+                <ArrowLeft width={28} height={28}/>
+            </button>
             <button className={styles.nav_action} onClick={menuClick}>
                 <Menu width={28} height={28} />
             </button>

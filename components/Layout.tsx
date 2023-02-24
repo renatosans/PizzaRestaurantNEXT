@@ -24,9 +24,13 @@ const Layout:React.FC<ILayout> = ({children}) => {
     const closeNotification = context.update.closeNotification;
     const showNotification = context.state.showNotification
 
+    const returnClick = () => {
+        toast.success("Goback click");
+    }
+
     const menuClick = () => {
         console.log(ingredients);
-        toast.success("Under construction");
+        toast.success("Menu click");
     }
 
     const cartClick = () => {
@@ -55,7 +59,7 @@ const Layout:React.FC<ILayout> = ({children}) => {
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <Toaster/>
-        <Navbar menuClick={menuClick} cartClick={cartClick} showCart={showCart}/>
+        <Navbar returnClick={returnClick} menuClick={menuClick} cartClick={cartClick} showCart={showCart}/>
         <Cart show={showCart} />
         {<div className={`${styles.notification} ${showNotification && styles.notification_show}`}>
             <p>Item Added to Cart!</p>
