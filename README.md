@@ -7,6 +7,7 @@ Online pizza ordering written in Nextjs
 - Added backend to the project
 - Added database scripts to the project
 
+![screenshot](public/img/screenshot.jpg)
 
 ## Steps to run the project
 - npm install
