@@ -1,16 +1,19 @@
-import styles from '../styles/Home.module.scss';
-import Draggable from 'react-draggable'
+import styles from '../styles/Home.module.scss'
 import Image from 'next/image'
-import Router from 'next/router';
-import type { NextPage } from 'next';
-import React, {useRef, useState} from 'react';
-import {menuOptions} from '../utils/fakeData';
-import { menuOptionType } from '../utils/types';
-import MenuSection from '../components/MenuSection';
+import Router from 'next/router'
+import type { NextPage } from 'next'
+import Draggable from 'react-draggable'
+import { Button, Dialog } from '@mui/material'
+import React, {useRef, useState} from 'react'
+import {menuOptions} from '../utils/fakeData'
+import { menuOptionType } from '../utils/types'
+import MenuSection from '../components/MenuSection'
+import { IngredientForm } from '../components/IngredientForm'
 
 
 const Home: NextPage = () => {
     const menu_ref = useRef(null);
+    const [open, setOpen] = useState(true);
     const [currentMenuOption,setCurrentMenuOption] = useState(menuOptions[0]);
 
     const changeMenuOption = (option:menuOptionType) => {
@@ -22,10 +25,16 @@ const Home: NextPage = () => {
       if(ref.current) ref.current.scrollIntoView();
     }
 
+    const toggle = () => {
+      setOpen(current => !current);
+    }
+  
   return (
     <div className={styles.homepage}>
 			<Draggable>
-        <div></div>
+        <Dialog open={open} onClose={toggle} BackdropProps={{ style: { backgroundColor: "transparent" } }} >
+          <IngredientForm dialogRef={{ toggle }} />
+        </Dialog>
 			</Draggable>
 
       <div className={styles.hero}>
