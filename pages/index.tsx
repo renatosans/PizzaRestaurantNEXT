@@ -1,16 +1,13 @@
-import React, {useRef, useState} from 'react';
-import type { NextPage } from 'next';
-import Image from 'next/image'
-
 import styles from '../styles/Home.module.scss';
+import Draggable from 'react-draggable'
+import Image from 'next/image'
+import Router from 'next/router';
+import type { NextPage } from 'next';
+import React, {useRef, useState} from 'react';
+import {menuOptions} from '../utils/fakeData';
+import { menuOptionType } from '../utils/types';
 import MenuSection from '../components/MenuSection';
 
-import { menuOptionType } from '../utils/types';
-import {menuOptions} from '../utils/fakeData';
-import Router from 'next/router';
-
-
-//   https://github.com/Vitals9367/pizza_website.git
 
 const Home: NextPage = () => {
     const menu_ref = useRef(null);
@@ -27,6 +24,10 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.homepage}>
+			<Draggable>
+        <div></div>
+			</Draggable>
+
       <div className={styles.hero}>
         <video preload="auto" autoPlay loop muted>
           <source src='/video.mp4' type="video/mp4"/>
@@ -74,12 +75,7 @@ const Home: NextPage = () => {
           </p>
         </div> 
         <div className={styles.ad_column}>
-          <Image
-            src='/pizzeria.jpg'
-            alt='ad'
-            layout="fill"
-            objectFit='cover'
-          />
+          <Image src='/pizzeria.jpg' alt='ad' layout="fill" objectFit='cover' />
         </div>
       </div>
     </div>
