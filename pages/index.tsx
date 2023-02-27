@@ -57,9 +57,7 @@ const Home: NextPage = () => {
         {currentMenuOption.sections.map((section,index) => (
           <MenuSection topic={section.name} list={section.list} key={index}/>
         ))}
-        <button className={styles.all_button} onClick={() => Router.push('/all-pizzas')}>
-          See all pizzas
-        </button>
+        <button className={styles.all_button} onClick={() => Router.push('/all-pizzas')}>See all pizzas</button>
       </div>
       <div className={styles.ad}>
         <div className={styles.ad_column}>
