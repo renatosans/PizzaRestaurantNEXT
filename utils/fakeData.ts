@@ -97,43 +97,50 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       "ingredient_id" : 1,
       "ingredient_name" : "Calabresa",
       "flag" : true,
-      "img" : "/img/ingredient1.jpg"
+      "img" : "/img/ingredients/ingredient1.jpg",
+      "supplier": "Assaí Atacadista",
     },
     {
       "ingredient_id" : 2,
       "ingredient_name" : "Ovo",
       "flag" : true,
-      "img" : "https://img.freepik.com/free-photo/top-view-duck-eggs-dark-surface_1150-36985.jpg"
+      "img" : "/img/ingredients/ingredient2.jpg",
+      "supplier": "Extra",
     },
     {
       "ingredient_id" : 3,
       "ingredient_name" : "Tomate",
       "flag" : true,
-      "img" : "https://img.freepik.com/free-photo/fresh-tomatoes-ready-cook_1150-38243.jpg"
+      "img" : "/img/ingredients/ingredient3.jpg",
+      "supplier": "Mercadão Atacadista",
     },
     {
       "ingredient_id" : 4,
       "ingredient_name" : "Mussarela",
-      "flag" : true,
-      "img" : "https://img.freepik.com/free-photo/isometric-cheese-composition_23-2148161904.jpg"
+      "flag" : false,
+      "img" : "/img/ingredients/ingredient4.jpg",
+      "supplier": "Extra",
     },
     {
       "ingredient_id" : 5,
       "ingredient_name" : "Azeitona",
       "flag" : true,
-      "img" : "https://img.freepik.com/free-photo/fresh-tasty-green-olives_1220-1414.jpg"
+      "img" : "/img/ingredients/ingredient5.jpg",
+      "supplier": "Mercadão Atacadista",
     },
     {
       "ingredient_id" : 6,
       "ingredient_name" : "Peperoni",
-      "flag" : true,
-      "img" : "https://img.freepik.com/free-photo/tasty-traditional-chorizo-assortment_23-2148980296.jpg"
+      "flag" : false,
+      "img" : "/img/ingredients/ingredient6.jpg",
+      "supplier": "Assaí Atacadista",
     },
     {
       "ingredient_id" : 7,
-      "ingredient_name" : "Presunto",
-      "flag" : true,
-      "img" : "https://img.freepik.com/free-photo/pork-ham_1339-2076.jpg"
+      "ingredient_name" : "Queijo Gorgonzola",
+      "flag" : false,
+      "img" : "/img/ingredients/ingredient7.jpg",
+      "supplier" : "Carrefour",
     },
   ]
 

@@ -30,10 +30,11 @@ model ingredient_supplier {
 }
 
 model ingredients {
-  ingredient_id       Int                   @id @default(autoincrement())
-  ingredient_name     String?               @db.VarChar(250)
-  flag                Boolean?              @default(true)
-  img                 String?               @db.VarChar(250)
+  ingredient_id       Int                  @id @default(autoincrement())
+  ingredient_name     String               @db.VarChar(250)
+  flag                Boolean?             @default(true)
+  img                 String?              @db.VarChar(250)
+  supplier            String?              @db.VarChar(250)
   ingredient_region   ingredient_region[]
   ingredient_supplier ingredient_supplier[]
 }

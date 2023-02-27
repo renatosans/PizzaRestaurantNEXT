@@ -943,8 +943,10 @@ ALTER TABLE public.ingredient_supplier OWNER TO postgres;
 
 CREATE TABLE public.ingredients (
     ingredient_id integer DEFAULT nextval('public.ing_seq'::regclass) NOT NULL,
-    ingredient_name character varying(250),
-    flag boolean DEFAULT true
+    ingredient_name character varying(250)  NOT NULL,
+    flag boolean DEFAULT true,
+    img character varying(250),
+    supplier character varying(250)
 );
 
 
