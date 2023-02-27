@@ -6,6 +6,8 @@ Online pizza ordering written in Nextjs
 
 - Added backend to the project
 - Added database scripts to the project
+- Added API fetch and item listing
+- Added Feature to upload ingredients
 
 ![screenshot](public/img/screenshot.png)
 
