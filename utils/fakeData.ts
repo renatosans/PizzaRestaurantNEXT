@@ -13,7 +13,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
     },
     {
       name: 'California Pizza',
-      imageSrc: '/pizza6.jpg',
+      imageSrc: '/img/pizzas/pizza6.jpg',
       heat: 2,
       price: 9,
       currency: '$',
@@ -21,7 +21,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
     },
     {
       name: 'New York-Style Pizza',
-      imageSrc: '/pizza7.jpg',
+      imageSrc: '/img/pizzas/pizza7.jpg',
       heat: 2,
       price: 9,
       currency: '$',
@@ -29,7 +29,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
     },
     {
       name: 'Volcano',
-      imageSrc: '/pizza8.jpg',
+      imageSrc: '/img/pizzas/pizza8.jpg',
       heat: 2,
       price: 9,
       currency: '$',
@@ -40,7 +40,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
   export const trending:pizzaType[] = [
     {
       name: 'Sicilian Pizza',
-      imageSrc: '/pizza1.jpg',
+      imageSrc: '/img/pizzas/pizza1.jpg',
       heat: 3,
       price: 15,
       currency: '$',
@@ -48,7 +48,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
     },
     {
       name: 'Havaian',
-      imageSrc: '/pizza2.jpg',
+      imageSrc: '/img/pizzas/pizza2.jpg',
       heat: 2,
       price: 9,
       currency: '$',
@@ -68,7 +68,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
   export const best:pizzaType[] = [
     {
       name: 'Chicago Pizza',
-      imageSrc: '/pizza3.jpg',
+      imageSrc: '/img/pizzas/pizza3.jpg',
       heat: 3,
       price: 15,
       currency: '$',
@@ -76,7 +76,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
     },
     {
       name: 'Greek Pizza',
-      imageSrc: '/pizza4.jpg',
+      imageSrc: '/img/pizzas/pizza4.jpg',
       heat: 2,
       price: 9,
       currency: '$',
@@ -84,7 +84,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
     },
     {
       name: 'Types of Pizza Crust',
-      imageSrc: '/pizza5.jpg',
+      imageSrc: '/img/pizzas/pizza5.jpg',
       heat: 2,
       price: 9,
       currency: '$',
