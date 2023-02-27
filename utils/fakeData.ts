@@ -5,7 +5,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
   export const cheapest:pizzaType[] = [
     {
       name: 'Neapolitan Pizza',
-      imageSrc: '/palermo.jpg',
+      imageSrc: '/img/pizzas/palermo.jpg',
       heat: 3,
       price: 15,
       currency: '$',
@@ -56,7 +56,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
     },
     {
       name: 'Detroit Pizza',
-      imageSrc: '/palermo2.jpg',
+      imageSrc: '/img/pizzas/palermo2.jpg',
       heat: 1,
       price: 25,
       discount: -10,
