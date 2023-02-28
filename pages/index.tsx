@@ -1,5 +1,4 @@
 import styles from '../styles/Home.module.scss'
-import Image from 'next/image'
 import Router from 'next/router'
 import type { NextPage } from 'next'
 import Draggable from 'react-draggable'
@@ -7,6 +6,7 @@ import { Button, Dialog } from '@mui/material'
 import React, {useRef, useState} from 'react'
 import {menuOptions} from '../utils/fakeData'
 import { menuOptionType } from '../utils/types'
+import Banner from '../components/Banner'
 import MenuSection from '../components/MenuSection'
 import { IngredientForm } from '../components/IngredientForm'
 
@@ -38,9 +38,7 @@ const Home: NextPage = () => {
 			</Draggable>
 
       <div className={styles.hero}>
-        <video preload="auto" autoPlay loop muted>
-          <source src='/video.mp4' type="video/mp4"/>
-        </video>
+        <video preload="auto" autoPlay loop muted><source src='/video.mp4' type="video/mp4"/></video>
         <div className={styles.hero_text}>
           <div className={styles.txt}>
             <h1>Made</h1>
@@ -68,23 +66,9 @@ const Home: NextPage = () => {
         ))}
         <button className={styles.all_button} onClick={() => Router.push('/all-pizzas')}>See all pizzas</button>
       </div>
-      <div className={styles.ad}>
-        <div className={styles.ad_column}>
-          <h2>La Cucina</h2>
-          <p>
-          We believe that every restaurant has its heart and it’s the kitchen. La Cucina means kitchen in Italian and in our restaurant & pizzeria it is open for every guest. The way food is prepared and made is important. What if you could actually see how your dish is created by our chefs? You can see it! We have an open kitchen which means all the action is there and you can enjoy it when sitting on your table.
-          <br/>
-          <br/>
-          Our menu is versatile. You have fantastic meat dishes, salads and pastas.
-          <br/>
-          <br/>
-          Do we have pizzas? Of course we do! Actually we have really special ones, which are called Neapolitan style pizzas. Come and try!
-          </p>
-        </div> 
-        <div className={styles.ad_column}>
-          <Image src='/img/pizzeria.jpg' alt='ad' layout="fill" objectFit='cover' />
-        </div>
-      </div>
+      <Banner title='La Cucina' offerings='🍔 Hamburger 🍕 Pizza 🥪 Sandwich'>
+        Our menu is versatile. You have fantastic meat dishes, salads and pastas.
+      </Banner>
     </div>
   )
 }
