@@ -44,7 +44,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       heat: 3,
       price: 15,
       currency: '$',
-      description:lorem
+      description: 'Pecorino, pepperoni, and sliced mozzarella cheese',
     },
     {
       name: 'Havaian',
@@ -52,7 +52,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       heat: 2,
       price: 9,
       currency: '$',
-      description:lorem
+      description: 'Pineapple, tomato sauce, cheese, ham or bacon',
     },
     {
       name: 'Detroit Pizza',
@@ -61,7 +61,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       price: 25,
       discount: -10,
       currency: '$',
-      description:lorem
+      description: 'Chewy crust, pizza sauce, melty cheese galore and pepperoni cups',
     },
   ]
 
@@ -72,7 +72,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       heat: 3,
       price: 15,
       currency: '$',
-      description:lorem
+      description: 'Pizza dough, tomato sauce, cheese, sausage, pepperoni, onions and mushrooms',
     },
     {
       name: 'Greek Pizza',
@@ -80,7 +80,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       heat: 2,
       price: 9,
       currency: '$',
-      description:lorem
+      description: 'Pizza dough, cheese, tomato sauce, feta, spinach and olives',
     },
     {
       name: 'Types of Pizza Crust',
