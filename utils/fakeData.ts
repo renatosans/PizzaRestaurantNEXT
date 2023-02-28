@@ -9,7 +9,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       heat: 3,
       price: 15,
       currency: '$',
-      description:lorem
+      description: 'A basic dough, raw tomatoes, fresh mozzarella cheese, fresh basil, and olive oil',
     },
     {
       name: 'California Pizza',
@@ -17,7 +17,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       heat: 2,
       price: 9,
       currency: '$',
-      description:lorem
+      description: 'Chicken, peanut sauce, artichoke hearts, and goat cheese',
     },
     {
       name: 'New York-Style Pizza',
@@ -25,7 +25,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       heat: 2,
       price: 9,
       currency: '$',
-      description:lorem
+      description: 'Pizza dough, tomato sauce, mozzarella',
     },
     {
       name: 'Volcano',
@@ -33,7 +33,7 @@ const lorem = 'Contrary to popular belief, Lorem Ipsum is not simply random text
       heat: 2,
       price: 9,
       currency: '$',
-      description:lorem
+      description: 'BBQ sauce, chicken, pineapple, green peppers, onions, jalapenos, and mozzarella',
     },
   ]
 
