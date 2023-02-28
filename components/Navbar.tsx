@@ -58,11 +58,7 @@ const Navbar:React.FC<INavbar> = ({returnClick, menuClick, cartClick, showCart=f
         <nav className={`${styles.nav} ${show() && styles.show_nav}`}>
             <div className={styles.logo_wrapper}>
                 <div className={styles.nav_logo}>
-                    <Image
-                    src={chef}
-                    alt='chef'
-                    objectFit='contain'
-                    />
+                    <Image src={chef} alt='chef' objectFit='contain' />
                 </div>
             </div>
             <div className={styles.nav_text}>
