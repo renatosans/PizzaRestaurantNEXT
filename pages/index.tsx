@@ -82,7 +82,7 @@ const Home: NextPage = () => {
           </p>
         </div> 
         <div className={styles.ad_column}>
-          <Image src='/pizzeria.jpg' alt='ad' layout="fill" objectFit='cover' />
+          <Image src='/img/pizzeria.jpg' alt='ad' layout="fill" objectFit='cover' />
         </div>
       </div>
     </div>
