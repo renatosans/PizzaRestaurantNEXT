@@ -28,17 +28,25 @@ export const IngredientForm = ({dialogRef}: any) => {
         const payload = {...ingredient, ...image};
 
         fetch(`/api/ingredients`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', },
-                body: JSON.stringify(payload), })
-        .then {
-            toast.success('Ingrediente salvo com sucesso', notification.options as ToastOptions);
-            dialogRef.toggle();
-            return;    
-        } catch (error: any) {
-			toast.error(error.message, notification.options as ToastOptions);
-			return;
-        }
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', },
+            body: JSON.stringify(payload), })
+        .then((response) => {
+            if(response.ok)
+            {
+                toast.success('Ingrediente salvo com sucesso', notification.options as ToastOptions);
+                dialogRef.toggle();
+                return;
+            }
+
+            throw new Error(response.statusText);
+        })  
+        .then((text) => {
+            console.log(text);
+        })  
+        .catch((error: any) => {
+            toast.error(error.message, notification.options as ToastOptions);
+        })
     }
 
 	const onChange = (e: any) => {
