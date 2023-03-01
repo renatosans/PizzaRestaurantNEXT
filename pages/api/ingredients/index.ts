@@ -16,6 +16,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	}
 }
 
+// TODO : >> Implementar micro serviço em RUST que receba como parametros o nome da tabela e o campo da
+//           tabela e grave a imagem no File System e armazene o caminho relativo para a imagem no campo 
+//           passado, evitando assim duplicar o código abaixo, se não terá uma duplicação para o cadastro
+//           da foto da pizza
+
 // TODO : >>   Fix image upload    <<
 // Open INSOMNIA to test the endpoint ( http://localhost:3000/api/ingredients ),  use   sampleData.json
 // Expected behaviour : write the image to File System and store the image relative path in the database
