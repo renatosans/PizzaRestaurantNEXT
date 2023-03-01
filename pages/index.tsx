@@ -6,6 +6,7 @@ import { Button, Dialog } from '@mui/material'
 import React, {useRef, useState} from 'react'
 import {menuOptions} from '../utils/fakeData'
 import { menuOptionType } from '../utils/types'
+import Slogan from '../components/Slogan'
 import Banner from '../components/Banner'
 import MenuSection from '../components/MenuSection'
 import { IngredientForm } from '../components/IngredientForm'
@@ -39,21 +40,8 @@ const Home: NextPage = () => {
 
       <div className={styles.hero}>
         <video preload="auto" autoPlay loop muted><source src='/video.mp4' type="video/mp4"/></video>
-        <div className={styles.hero_text}>
-          <div className={styles.txt}>
-            <h1>Made</h1>
-            <h1>with</h1>
-            <h1>Love</h1>
-          </div>
-          <div className={styles.hero_lines}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <button className={styles.checkout_menu} onClick={() => scrollIntoView(menu_ref)}>
-            <h3>Checkout Menu</h3>
-          </button>
-        </div>
+        <Slogan sentence1='What' sentence2='the' sentence3='Fuck'>Made with Love</Slogan>
+        <button className={styles.checkout_menu} onClick={() => scrollIntoView(menu_ref)}><h3>Checkout Menu</h3></button>
       </div>
       <div ref={menu_ref} className={styles.menu}>
         <div className={styles.menu_options}>
