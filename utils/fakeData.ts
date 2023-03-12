@@ -93,49 +93,42 @@ import { ingredientType, menuOptionType, pizzaType } from "./types"
 
   export const allIngredients: ingredientType[] = [
     {
-      "ingredient_id" : 1,
       "ingredient_name" : "Calabresa",
       "flag" : true,
       "img" : "/img/ingredients/ingredient1.jpg",
       "supplier": "Assaí Atacadista",
     },
     {
-      "ingredient_id" : 2,
       "ingredient_name" : "Ovo",
       "flag" : true,
       "img" : "/img/ingredients/ingredient2.jpg",
       "supplier": "Extra",
     },
     {
-      "ingredient_id" : 3,
       "ingredient_name" : "Tomate",
       "flag" : true,
       "img" : "/img/ingredients/ingredient3.jpg",
       "supplier": "Mercadão Atacadista",
     },
     {
-      "ingredient_id" : 4,
       "ingredient_name" : "Mussarela",
       "flag" : false,
       "img" : "/img/ingredients/ingredient4.jpg",
       "supplier": "Extra",
     },
     {
-      "ingredient_id" : 5,
       "ingredient_name" : "Azeitona",
       "flag" : true,
       "img" : "/img/ingredients/ingredient5.jpg",
       "supplier": "Mercadão Atacadista",
     },
     {
-      "ingredient_id" : 6,
       "ingredient_name" : "Peperoni",
       "flag" : false,
       "img" : "/img/ingredients/ingredient6.jpg",
       "supplier": "Assaí Atacadista",
     },
     {
-      "ingredient_id" : 7,
       "ingredient_name" : "Queijo Gorgonzola",
       "flag" : false,
       "img" : "/img/ingredients/ingredient7.jpg",
