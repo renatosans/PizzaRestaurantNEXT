@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import { prisma } from '../../../utils/connection'
 import { ingredientType } from '../../../utils/types'
+import { prisma } from '../../../utils/connection'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 
@@ -30,10 +30,11 @@ const saveIngredient = async (req: NextApiRequest, res: NextApiResponse) => {
 	const nextNumber = Math.round(Math.random() * 99999);
 	const timeStampSalt = `NaN${Date.now()}`;
 	const dir = '/img/ingredients/';
-	const filename = `ingredient_${timeStampSalt}_${nextNumber.toString()}.jpg`;
+	const extension = imageFormat.replace("image/", "").replace(";base64", "");
+	const filename = `ingredient_${timeStampSalt}_${nextNumber.toString()}.${extension}`;
 	const buffer = Buffer.from(imageData, 'base64');
 	const filePath: fs.PathLike = path.resolve(`./public${dir}`, filename);
-	console.log(`FilePath is ${filePath}`);
+	console.log(`FilePath is ${filePath} Extension is ${extension}`);
 	fs.open(filePath, "w", (err, fd) => {
 		fs.write(fd, buffer, 0, buffer.length, (err, writtenBytes, buffer) => {
 			console.log(`Wrote ${writtenBytes} bytes to file`);
