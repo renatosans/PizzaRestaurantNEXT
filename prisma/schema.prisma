@@ -3,81 +3,89 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model ingredient_region {
-  ing_reg_id    Int            @id @map("_id")
-  ingredient_id String         @db.ObjectId
   region_id     Int
-  supplier_id   Int?
-  price         Float?         @db.Double
+  ingredient_id Int
+  price         Decimal?       @db.Decimal(8, 2)
   stock         Int?
+  ing_reg_id    Int            @id @default(autoincrement())
+  supplier_id   Int?
   ingredients   ingredients    @relation(fields: [ingredient_id], references: [ingredient_id], onDelete: Cascade)
   region        region         @relation(fields: [region_id], references: [region_id], onDelete: Cascade)
   supplier      supplier?      @relation(fields: [supplier_id], references: [supplier_id], onDelete: Cascade)
+  order_detail  order_detail[] @ignore
 }
 
 model ingredient_supplier {
-  ing_sup_id    Int            @id @map("_id")
-  ingredient_id String         @db.ObjectId
+  ingredient_id Int
   supplier_id   Int
-  ingredients   ingredients    @relation(fields: [ingredient_id], references: [ingredient_id], onDelete: Cascade)
-  supplier      supplier       @relation(fields: [supplier_id], references: [supplier_id], onDelete: Cascade)
+  ingredients   ingredients @relation(fields: [ingredient_id], references: [ingredient_id], onDelete: Cascade)
+  supplier      supplier    @relation(fields: [supplier_id], references: [supplier_id], onDelete: Cascade)
+
+  @@id([ingredient_id, supplier_id])
 }
 
 model ingredients {
-  ingredient_id       String        @id @map("_id") @default(auto()) @db.ObjectId
-  ingredient_name     String        @db.String
-  flag                Boolean?      @default(true)
-  img                 String?       @db.String
-  supplier            String?       @db.String
+  ingredient_id       Int                  @id @default(autoincrement())
+  ingredient_name     String               @db.VarChar(250)
+  flag                Boolean?             @default(true)
+  img                 String?              @db.VarChar(250)
+  supplier            String?              @db.VarChar(250)
   ingredient_region   ingredient_region[]
   ingredient_supplier ingredient_supplier[]
 }
 
 model order {
-  order_id     Int            @id @map("_id")
-  timestamp    DateTime?      @db.Timestamp
-  total_price  Float?         @db.Double
+  timestamp    DateTime?      @db.Timestamp(6)
+  total_price  Decimal?       @db.Decimal(8, 2)
+  order_id     Int            @id @default(autoincrement())
   order_detail order_detail[] @ignore
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model order_detail {
-  id          Int           @id @map("_id")
-  item        String        @db.String
-  order_id    Int
-  order       order?        @relation(fields: [order_id], references: [order_id], onDelete: Cascade)  
+  base_id           Int?
+  ingredient_id     Int?
+  order_id          Int?
+  ingredient_region ingredient_region? @relation(fields: [ingredient_id], references: [ing_reg_id], onDelete: Cascade)
+  order             order?             @relation(fields: [order_id], references: [order_id], onDelete: Cascade)
+  pizza_base        pizza_base?        @relation(fields: [base_id], references: [base_id], onDelete: Cascade)
+
+  @@ignore
 }
 
 model pizza {
-  id          String        @id @map("_id") @default(auto()) @db.ObjectId
-  name        String        @db.String
-  description String?       @db.String
-  imageSrc    String        @db.String
+  id          Int           @id @default(autoincrement())
+  name        String        @db.VarChar(250)
+  description String?       @db.VarChar(4000)
+  imageSrc    String        @db.VarChar(250)
   heat        Int?
-  price       Float?        @db.Double
-  discount    Float?        @db.Double
-  currency    String        @db.String
+  price       Decimal       @db.Decimal(10, 2)
+  discount    Decimal?      @db.Decimal(10, 2)
+  currency    String        @db.VarChar(4)
 }
 
 model pizza_base {
-  base_id      Int            @id @map("_id")
-  base_size    String?        @db.String
-  price        Float?         @db.Double
+  base_id      Int            @id
+  base_size    String?        @db.VarChar(60)
+  price        Decimal?       @db.Decimal(8, 2)
+  order_detail order_detail[] @ignore
 }
 
 model region {
-  region_id         Int                 @id @map("_id")
-  region_name       String?             @db.String
+  region_id         Int                 @id
+  region_name       String?             @db.VarChar(500)
   ingredient_region ingredient_region[]
 }
 
 model supplier {
-  supplier_id         Int               @id @map("_id")
-  supplier_name       String?           @db.String
-  hidden              Boolean?          @default(true)
+  supplier_id         Int                   @id @default(autoincrement())
+  supplier_name       String?               @db.VarChar(150)
+  hidden              Boolean?              @default(true)
   ingredient_region   ingredient_region[]
   ingredient_supplier ingredient_supplier[]
 }
