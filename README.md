@@ -18,7 +18,7 @@ Online pizza ordering written in Nextjs
 ## Steps to create de database
 - docker compose up
 - attach shell (in the docker container)
-- start mongo instance as replica set   ( mongosh >  rs.initiate()  )
-- set DATABASE_url in .env  
+- start mongo instance as replica set:   > mongosh > rs.initiate()
+- set DATABASE_URL in .env  
 - prisma db push
 - prisma db seed         ( you may need  > npm install -g tsx )
