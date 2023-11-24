@@ -3,6 +3,7 @@
 .next
 /dist
 /node_modules
+/data/mongo
 
 # Keep environment variables out of version control
 .env
