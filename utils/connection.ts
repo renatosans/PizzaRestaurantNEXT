@@ -1,19 +1,17 @@
 import { PrismaClient } from '@prisma/client';
 
 
-const host     = 'localhost'
-const port     = 3306
-const username = 'root'
-const password = 'p@ssw0rd'
-const database = 'pizza_ordering'
-const ssl      = false
-const setSSL   = 'sslaccept=strict&sslmode=require'
+const host       = 'localhost'
+const port       = 27017
+const database   = 'pizza_ordering'
+const direct     = true
+const setDirect  = 'directConnection=true'
 
 
-// DATABASE_URL="mysql://root:p@ssw0rd@localhost:3306/pizza_ordering"
-let url = `mysql://${username}:${password}@${host}:${port}/${database}`;
-if (ssl) {
-    url = url + `?${setSSL}`;
+// DATABASE_URL="mongodb://localhost:27017/pizza_ordering?directConnection=true"
+let url = `mongodb://${host}:${port}/${database}`;
+if (direct) {
+    url = url + `?${setDirect}`;
 }
 
 const prisma = new PrismaClient({datasources: { db: { url: url } } })
